@@ -38,3 +38,7 @@
 <img src="images/4_Result_page_using_shorten_url.jpg">
 
 ##### Here is Demo Video of Project 
+
+<video width="320" height="240" controls>
+  <source src="images/Demo.mp4" type="video/mp4">
+</video>
