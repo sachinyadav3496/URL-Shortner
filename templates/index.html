@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <div style="align-items: center; align-content: center; align-self: center; text-align: center;">
+        <h1> URL SHORTNER</h1>
+        <h2 style="color:red">Make Life Easy by Shortening Your URLs</h2>
+
+                    <!-- <form action="/shorten" method="POST"> -->
+                        <br><br><br><br>
+                        <div>
+                            <div>
+                                <label>URL: <input type="url" name="link" id="input_url"/></label>
+                            </div>
+                            <div>
+                                <button id="btn" onclick=get_data()>Submit</button>
+                            </div>
+                        </div> 
+
+                    <div>
+                            <p id="result_label"></p><a id="result" target="_blank"></a>
+                    </div>
+                </div>
+   <script>
+
+    function set_data(data){
+        console.log("setting data");
+        document.getElementById("result_label").innerHTML =  "Shorten URL: "; 
+        const element = document.getElementById("result");
+        element.innerHTML = data["url"];
+        element.href = data["url"];
+        document.getElementById("input_url").value = "";
+    };
+    function get_data(){
+        console.log("hello you are in get data");
+        const x = document.getElementById("input_url");
+        
+        const formData = new FormData();
+        console.log(x);
+        console.log(x.value);
+        formData.append('link', x.value);
+        const currentBaseUrl = window.location.protocol + '//' + window.location.host+"/shorten";
+        console.log(currentBaseUrl);
+        console.log(formData);
+        fetch(currentBaseUrl, {
+        method: 'POST',
+        body: formData
+        })
+    .then(response => response.json())
+    .then(
+        data =>set_data(data)
+        )
+    .catch(error => console.error(error));
+}
+
+    // let btn = document.getElementById("btn");
+    // btn.addEventListener('click', get_data());
+   </script>
+</body>
+</html>
