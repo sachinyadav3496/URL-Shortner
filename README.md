@@ -39,6 +39,6 @@
 
 ##### Here is Demo Video of Project 
 
-<video width="320" height="240" controls>
+<video width="320" height="240" controls="controls">
   <source src="images/Demo.mp4" type="video/mp4">
 </video>
